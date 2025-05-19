@@ -178,13 +178,21 @@ const App = () => {
         {role === "broadcaster" && (
           <div>
             <h2 className="font-semibold">Local Video</h2>
-            <video
-              ref={localVideoRef}
-              autoPlay
-              muted
-              playsInline
-              className="w-full h-64 md:h-[70vh] bg-black object-contain rounded"
-            />
+            {started && (
+              <p className="text-sm text-white">
+                You're sharing your screen. Leave this page or hide the preview
+                to avoid visual artifacts.
+              </p>
+            )}
+            {!started && (
+              <video
+                ref={localVideoRef}
+                autoPlay
+                muted
+                playsInline
+                className="w-full h-64 md:h-[70vh] bg-black object-contain rounded"
+              />
+            )}
           </div>
         )}
 
